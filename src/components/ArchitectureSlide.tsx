@@ -144,17 +144,17 @@ export const ArchitectureSlide: React.FC<{ slide: SlideData }> = ({ slide }) => 
               {
                 title: "目录管理",
                 items: ['目录编制', '目录审核', '目录变更', '目录发布'],
-                aiTag: "AI两步编目/6项质检"
+                aiTag: "AI两步编目/质检"
               },
               {
                 title: "服务管理",
-                items: ['服务开发', '服务配置', '服务测试', '服务发布'],
-                aiTag: "AI智能填充/连通测试"
+                items: ['服务开发', '服务审核', '服务配置', '服务测试'],
+                aiTag: "AI服务审核/智能配置"
               },
               {
                 title: "供需对接",
-                items: ['需求管理', '供给管理', '供需协调', '场景管理'],
-                aiTag: "AI需求智能审核"
+                items: ['需求管理', '供给管理', '供需审核', '场景管理'],
+                aiTag: "AI供需智能审核"
               }
             ].map((pillar, idx) => (
               <div key={idx} className="p-2 rounded-lg bg-slate-900/60 border border-slate-700">
@@ -166,12 +166,12 @@ export const ArchitectureSlide: React.FC<{ slide: SlideData }> = ({ slide }) => 
                     </span>
                   )}
                 </div>
-                <div className="grid grid-cols-2 gap-1 text-[11px] text-center">
+                <div className={`grid ${pillar.items.length === 3 ? 'grid-cols-3' : 'grid-cols-2'} gap-1 text-[11px] text-center`}>
                   {pillar.items.map((item, i) => (
                     <div
                       key={i}
                       className={`py-0.5 rounded border ${
-                        highlightAi && (item.includes('编制') || item.includes('审核') || item.includes('配置') || item.includes('测试'))
+                        highlightAi && (item.includes('编制') || item.includes('审核') || item.includes('配置'))
                           ? 'bg-blue-900/40 border-cyan-500/30 text-cyan-100 font-medium'
                           : 'bg-slate-800/40 border-slate-700/60 text-slate-400'
                       }`}
