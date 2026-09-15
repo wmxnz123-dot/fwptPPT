@@ -1,6 +1,6 @@
 import React from 'react';
 import { SlideData } from '../types';
-import { Sparkles, MessageSquare, ShieldCheck, ArrowUpRight, Compass, Rocket, RefreshCw, CheckCircle2 } from 'lucide-react';
+import { Sparkles, ShieldCheck, Compass, Rocket, RefreshCw } from 'lucide-react';
 
 export const OutroSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
   return (
@@ -26,7 +26,7 @@ export const OutroSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
       <div className="relative z-10 max-w-4xl mx-auto my-auto text-center space-y-5">
         <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-600/30 border border-cyan-400/40 text-cyan-300 text-xs font-semibold tracking-wider">
           <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
-          <span>THANK YOU FOR LISTENING · Q&A 互动交流</span>
+          <span>THANK YOU FOR LISTENING</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white leading-tight">
@@ -57,7 +57,7 @@ export const OutroSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
               <span>2. 全面推开</span>
             </div>
             <p className="text-[11px] text-slate-300 leading-snug">
-              贯通各部门两步式智能编目与6项机审质检规则，建立规范化的人机协同常态机制。
+              贯通各部门两步式智能编目与多项机审质检规则，建立规范化的人机协同常态机制。
             </p>
           </div>
 
@@ -70,25 +70,6 @@ export const OutroSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
               依托运营监控看板与智能问数报告，沉淀数据服务知识库，驱动数据资产越用越丰富。
             </p>
           </div>
-        </div>
-      </div>
-
-      {/* Bottom Discussion & Q&A Bar */}
-      <div className="relative z-10 p-3 rounded-xl bg-slate-900/90 border border-blue-500/30 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs">
-        <div className="flex items-center gap-2 text-cyan-300 font-bold">
-          <MessageSquare className="w-4 h-4 text-cyan-400" />
-          <span>敬请各位领导与专家批评指正 ｜ Q&A 研讨方向：</span>
-        </div>
-        <div className="flex items-center gap-2 text-[11px] text-slate-300 flex-wrap justify-center">
-          <span className="px-2 py-0.5 rounded bg-blue-900/50 border border-blue-700/50 text-blue-200">
-            ① 6大质检规则适配性
-          </span>
-          <span className="px-2 py-0.5 rounded bg-blue-900/50 border border-blue-700/50 text-blue-200">
-            ② 跨部门自动化测试交付标准
-          </span>
-          <span className="px-2 py-0.5 rounded bg-blue-900/50 border border-blue-700/50 text-blue-200">
-            ③ 智能问数与领导决策报告定制
-          </span>
         </div>
       </div>
     </div>

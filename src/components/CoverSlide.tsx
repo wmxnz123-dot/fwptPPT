@@ -11,8 +11,8 @@ export const CoverSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
       <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#3b82f6_1px,transparent_1px),linear-gradient(to_bottom,#3b82f6_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
       {/* Top Bar Header Badge */}
-      <div className="relative z-10 flex items-center justify-between">
-        <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-400/30 backdrop-blur-md">
+      <div className="relative z-10 flex items-center justify-between shrink-0">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-500/10 border border-blue-400/30 backdrop-blur-md">
           <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
           <span className="text-xs md:text-sm font-medium tracking-wide text-blue-200">政务与公共数据要素运营核心方案</span>
         </div>
@@ -22,23 +22,20 @@ export const CoverSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
         </div>
       </div>
 
-      {/* Hero Content */}
-      <div className="relative z-10 max-w-4xl my-auto space-y-6">
+      {/* Hero Content - Moderate balanced positioning */}
+      <div className="relative z-10 max-w-5xl mt-6 sm:mt-8 md:mt-9 mb-auto space-y-3 sm:space-y-4">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-600/30 border border-blue-400/40 text-blue-300 text-xs font-semibold uppercase tracking-wider">
           <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
           <span>Product Upgrade Strategy Deck</span>
         </div>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-          数据服务平台 <br />
-          <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-sky-200 bg-clip-text text-transparent">
-            智能化升级方案
-          </span>
+          数据服务平台 <span className="bg-gradient-to-r from-blue-300 via-cyan-300 to-sky-200 bg-clip-text text-transparent">智能化升级方案</span>
         </h1>
 
-        <p className="text-base sm:text-xl md:text-2xl text-blue-100/90 font-medium leading-relaxed max-w-3xl">
-          <span>AI赋能数据服务全流程：</span>
-          <span className="whitespace-nowrap inline-block">
+        <p className="text-base sm:text-xl md:text-2xl text-blue-100/90 font-medium leading-relaxed">
+          <span className="block">AI赋能数据服务全流程：</span>
+          <span className="whitespace-nowrap">
             让数据
             <span className="text-cyan-300 font-bold mx-1">更易找</span>、
             <span className="text-cyan-300 font-bold mx-1">更易编</span>、
@@ -48,7 +45,7 @@ export const CoverSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
           </span>
         </p>
 
-        <div className="h-0.5 w-32 bg-gradient-to-r from-cyan-400 to-transparent my-4" />
+        <div className="h-0.5 w-28 bg-gradient-to-r from-cyan-400 to-transparent my-2 sm:my-3" />
 
         <div className="text-xs sm:text-sm text-blue-200/75 flex items-center gap-3">
           <span>核心导向：推动数据服务从传统流程驱动向智能辅助、智能审核、智能分析、智能决策演进</span>
@@ -61,7 +58,7 @@ export const CoverSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
           { label: "更易找", desc: "智能问答助手 / 对话直达", icon: Sparkles },
           { label: "更易编", desc: "两步编制 / 字段智能填充", icon: Database },
           { label: "更易审", desc: "多项指标质检 / 人机协同", icon: ShieldCheck },
-          { label: "更易用", desc: "参数智能填充 / 规范交付", icon: Layers },
+          { label: "更易用", desc: "参数智能填充 / 智能测试交付", icon: Layers },
           { label: "更易管", desc: "智能统计问数 / 智能报告生成", icon: CheckCircle2 }
         ].map((item, idx) => (
           <div key={idx} className="p-3 rounded-lg bg-blue-900/40 border border-blue-400/20 backdrop-blur-sm hover:border-blue-400/40 transition-colors">

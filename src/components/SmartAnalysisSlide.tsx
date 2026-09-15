@@ -1,169 +1,210 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SlideData } from '../types';
-import { BarChart3, LineChart, PieChart, Sparkles, Filter, AlertOctagon, TrendingUp, FileText } from 'lucide-react';
+import {
+  BarChart3,
+  LineChart,
+  Sparkles,
+  Activity,
+  AlertTriangle,
+  FolderTree,
+  Send,
+  HelpCircle,
+  TrendingUp,
+  FileSpreadsheet,
+  CheckCircle2
+} from 'lucide-react';
 
 export const SmartAnalysisSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
-  const [boardType, setBoardType] = useState<'ops' | 'monitor'>('ops');
-  const [scope, setScope] = useState<'dept' | 'region'>('dept');
-
   return (
-    <div className="relative w-full h-full flex flex-col justify-between p-6 md:p-8 bg-slate-900 text-white overflow-hidden">
-      <div>
-        <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold tracking-wider uppercase mb-1">
+    <div className="relative w-full h-full flex flex-col justify-between p-5 md:p-7 bg-slate-900 text-white overflow-hidden">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+
+      {/* Header */}
+      <div className="shrink-0 relative z-10">
+        <div className="flex items-center gap-2 text-cyan-400 text-xs font-bold tracking-wider uppercase mb-0.5">
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-          <span>10 / 智能问数与报告分析</span>
+          <span>10 / 运营统计与运行监控</span>
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-          {slide.title}
+        <h2 className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight">
+          平台感知中枢：全域运营统计与实时运行监控
         </h2>
         <p className="text-xs md:text-sm text-blue-200/80 mt-0.5">
-          核心观点：{slide.coreView}
+          核心定位：构筑平台“全局统计看板 + 全栈运行监控 + 智能问数报告”三位一体的数字化感知体系
         </p>
       </div>
 
-      {/* Main Board Visual */}
-      <div className="my-auto w-full max-w-5xl mx-auto space-y-3">
-        {/* Toggle Bar between Monitor & Operations Board */}
-        <div className="flex items-center justify-between p-2.5 rounded-xl bg-slate-800/80 border border-slate-700/80">
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setBoardType('ops')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                boardType === 'ops'
-                  ? 'bg-blue-600 text-white shadow'
-                  : 'bg-slate-900/60 text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <BarChart3 className="w-3.5 h-3.5" />
-              <span>统计/运营看板（四大板块与指标体系）</span>
-            </button>
-            <button
-              onClick={() => setBoardType('monitor')}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                boardType === 'monitor'
-                  ? 'bg-blue-600 text-white shadow'
-                  : 'bg-slate-900/60 text-slate-400 hover:text-slate-200'
-              }`}
-            >
-              <LineChart className="w-3.5 h-3.5" />
-              <span>监控看板（运行监控总览与告警Top5）</span>
-            </button>
+      {/* Combined Unified Layout (No tabs, direct side-by-side co-existence) */}
+      <div className="my-auto grid grid-cols-1 lg:grid-cols-12 gap-3.5 max-w-6xl mx-auto w-full relative z-10 py-1">
+        {/* Module A: 运营统计看板体系 (Left 6 cols) */}
+        <div className="lg:col-span-6 flex flex-col justify-between p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 shadow-md">
+          <div>
+            <div className="flex items-center justify-between pb-2 border-b border-slate-700/70 mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-blue-500/20 border border-blue-400/30 flex items-center justify-center text-cyan-300">
+                  <BarChart3 className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white leading-tight">
+                    全域运营统计看板体系
+                  </h3>
+                  <span className="text-[10px] text-slate-400">
+                    资产·供给·使用·异议 四大板块指标联动
+                  </span>
+                </div>
+              </div>
+              <span className="px-2 py-0.5 rounded bg-blue-900/50 border border-blue-500/40 text-cyan-300 text-[10px] font-semibold">
+                管理运营视角
+              </span>
+            </div>
+
+            {/* 4 Pillars Grid (Presenting platform capability, NOT fake statistics) */}
+            <div className="grid grid-cols-2 gap-2 text-xs">
+              <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-700/60 flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-blue-300 font-semibold mb-1">
+                  <FolderTree className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="text-xs">数据目录统计模块</span>
+                </div>
+                <p className="text-[11px] text-slate-300 leading-snug">
+                  涵盖编目总量、各部门编目进度、目录服务挂载率及全域元数据结构分布。
+                </p>
+                <div className="mt-2 text-[10px] text-slate-400 border-t border-slate-800 pt-1 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-cyan-400" />
+                  <span>支撑编目归集考核</span>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-700/60 flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-blue-300 font-semibold mb-1">
+                  <Send className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="text-xs">服务与供给统计模块</span>
+                </div>
+                <p className="text-[11px] text-slate-300 leading-snug">
+                  聚合API接口、自助分析集、安全共享库多源供给服务发布与上架运行态势。
+                </p>
+                <div className="mt-2 text-[10px] text-slate-400 border-t border-slate-800 pt-1 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-cyan-400" />
+                  <span>多模交付供给全景</span>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-700/60 flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-blue-300 font-semibold mb-1">
+                  <TrendingUp className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="text-xs">申请使用统计模块</span>
+                </div>
+                <p className="text-[11px] text-slate-300 leading-snug">
+                  汇聚跨部门需求申请频次、场景审核流转周期、部门授权通过率与流通热度。
+                </p>
+                <div className="mt-2 text-[10px] text-slate-400 border-t border-slate-800 pt-1 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-cyan-400" />
+                  <span>要素流通流向追踪</span>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-700/60 flex flex-col justify-between">
+                <div className="flex items-center gap-1.5 text-blue-300 font-semibold mb-1">
+                  <HelpCircle className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="text-xs">数据异议统计模块</span>
+                </div>
+                <p className="text-[11px] text-slate-300 leading-snug">
+                  记录各用数部门反馈的质量缺陷、纠错工单响应时效与整改闭环情况。
+                </p>
+                <div className="mt-2 text-[10px] text-slate-400 border-t border-slate-800 pt-1 flex items-center gap-1">
+                  <CheckCircle2 className="w-3 h-3 text-cyan-400" />
+                  <span>数据质量闭环反哺</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Scope Toggle */}
-          <div className="flex items-center gap-2 text-xs">
-            <span className="text-slate-400">口径切换：</span>
-            <div className="p-0.5 rounded-lg bg-slate-900 border border-slate-700 flex items-center">
-              <button
-                onClick={() => setScope('dept')}
-                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
-                  scope === 'dept' ? 'bg-cyan-500 text-slate-900 font-bold' : 'text-slate-400'
-                }`}
-              >
-                部门口径
-              </button>
-              <button
-                onClick={() => setScope('region')}
-                className={`px-2 py-0.5 rounded text-[11px] font-medium transition-all ${
-                  scope === 'region' ? 'bg-cyan-500 text-slate-900 font-bold' : 'text-slate-400'
-                }`}
-              >
-                区划口径
-              </button>
-            </div>
+          <div className="mt-3 p-2 rounded-lg bg-blue-950/40 border border-blue-800/40 flex items-center justify-between text-[11px] text-blue-200">
+            <span>支持按“业务部门口径”与“行政区划口径”双重视角自由切换与多级图表穿透下钻</span>
+            <span className="text-cyan-400 font-semibold shrink-0 ml-2">双口径下钻</span>
           </div>
         </div>
 
-        {/* Board Content */}
-        {boardType === 'ops' ? (
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-3">
-            {/* 4 Operations Sections */}
-            <div className="md:col-span-7 grid grid-cols-2 gap-2 text-xs">
-              {[
-                { title: "数据目录统计", metric: "3,820 条", sub: "服务挂载率 87.5%", tag: "结构分析" },
-                { title: "服务统计", metric: "1,240 个", sub: "正常运行率 99.8%", tag: "趋势分析" },
-                { title: "申请使用统计", metric: "45,920 次", sub: "本月新增申请 612 件", tag: "部门下钻" },
-                { title: "数据异议统计", metric: "18 件", sub: "闭环整改率 100%", tag: "反哺治理" }
-              ].map((card, idx) => (
-                <div key={idx} className="p-3 rounded-lg bg-slate-800/80 border border-slate-700/80">
-                  <div className="flex items-center justify-between text-slate-400 mb-1">
-                    <span className="text-[11px] font-semibold">{card.title}</span>
-                    <span className="text-[10px] text-cyan-400 bg-cyan-950/60 px-1 py-0.2 rounded border border-cyan-800/40">
-                      {card.tag}
-                    </span>
+        {/* Module B: 实时运行监控看板体系 (Right 6 cols) */}
+        <div className="lg:col-span-6 flex flex-col justify-between p-3.5 rounded-xl bg-slate-800/80 border border-slate-700/80 shadow-md">
+          <div>
+            <div className="flex items-center justify-between pb-2 border-b border-slate-700/70 mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-lg bg-cyan-500/20 border border-cyan-400/30 flex items-center justify-center text-cyan-300">
+                  <LineChart className="w-4 h-4" />
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-white leading-tight">
+                    服务运行监控与韧性保障体系
+                  </h3>
+                  <span className="text-[10px] text-slate-400">
+                    秒级监测·告警定位·安全流转审计
+                  </span>
+                </div>
+              </div>
+              <span className="px-2 py-0.5 rounded bg-cyan-950/60 border border-cyan-500/40 text-cyan-300 text-[10px] font-semibold">
+                技术运维视角
+              </span>
+            </div>
+
+            {/* Monitoring Capability Blocks */}
+            <div className="space-y-2 text-xs">
+              <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-700/60 flex items-start gap-2.5">
+                <div className="w-6 h-6 rounded-md bg-blue-900/40 border border-blue-600/30 flex items-center justify-center text-cyan-300 shrink-0 mt-0.5">
+                  <Activity className="w-3.5 h-3.5" />
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold text-white text-xs">全链路服务调用态势感知</div>
+                  <div className="text-[11px] text-slate-300 leading-snug mt-0.5">
+                    实时监测全域 API 服务并发量、QPS 吞吐峰值、响应时延分布与跨网络链路通畅度。
                   </div>
-                  <div className="text-lg font-bold text-white font-mono">{card.metric}</div>
-                  <div className="text-[10px] text-slate-400 mt-1">{card.sub}</div>
-                </div>
-              ))}
-
-              <div className="col-span-2 p-2 rounded bg-blue-950/40 border border-blue-800/40 text-[11px] text-blue-200 flex items-center justify-between">
-                <span>维度支持：全局维度筛选 · 部门与区划口径切换 · 图表联动下钻</span>
-                <span className="text-cyan-400 font-semibold">统一运营视图</span>
-              </div>
-            </div>
-
-            {/* Smart Interpretation Assistant Box */}
-            <div className="md:col-span-5 p-3 rounded-xl bg-slate-800/90 border border-cyan-500/40 flex flex-col justify-between text-xs space-y-2">
-              <div className="flex items-center gap-2 text-cyan-300 font-bold border-b border-slate-700 pb-1.5">
-                <Sparkles className="w-4 h-4 text-cyan-400" />
-                <span>内置智能助手：数据解读与分析建议</span>
-              </div>
-
-              <div className="p-2.5 rounded bg-slate-900/90 border border-slate-700/80 text-slate-200 text-xs leading-relaxed space-y-1.5">
-                <div className="text-[11px] text-cyan-300 font-semibold">
-                  【智能月度运行洞察】：
-                </div>
-                <p className="text-[11px] text-slate-300">
-                  本月跨部门调用量环比增长 23%，主要集中在人社局与民政局“综合救助资质联审”场景。目前仍有 3 个边缘目录挂载率偏低，建议督导加快服务上架。
-                </p>
-                <div className="p-1.5 rounded bg-blue-950/60 text-[10px] text-blue-200 border border-blue-800/40">
-                  建议行动：发起第3季度目录专项挂载联调，优先保障高频审批场景。
                 </div>
               </div>
 
-              <button className="w-full py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold flex items-center justify-center gap-1.5 shadow">
-                <FileText className="w-3.5 h-3.5" />
-                <span>一键智能生成运营分析报告</span>
-              </button>
+              <div className="p-2.5 rounded-lg bg-slate-900/70 border border-slate-700/60 flex items-start gap-2.5">
+                <div className="w-6 h-6 rounded-md bg-amber-900/40 border border-amber-600/30 flex items-center justify-center text-amber-300 shrink-0 mt-0.5">
+                  <AlertTriangle className="w-3.5 h-3.5" />
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold text-white text-xs">服务异常预警与 Top 故障快速定位</div>
+                  <div className="text-[11px] text-slate-300 leading-snug mt-0.5">
+                    根据超时阈值、错误码激增等维度实施多级自动化告警，精准定位故障接口并自动派发运维工单。
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-2.5 rounded-lg bg-blue-950/40 border border-blue-700/40 flex items-start gap-2.5">
+                <div className="w-6 h-6 rounded-md bg-cyan-900/50 border border-cyan-500/40 flex items-center justify-center text-cyan-300 shrink-0 mt-0.5">
+                  <Sparkles className="w-3.5 h-3.5" />
+                </div>
+                <div className="flex-1">
+                  <div className="font-semibold text-cyan-300 text-xs">AI 智能问数与运行报告生成</div>
+                  <div className="text-[11px] text-slate-200 leading-snug mt-0.5">
+                    支持面向指标库与监控日志进行自然语言对话式探查，支持一键智能汇总并生成领导决策运营专报。
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        ) : (
-          /* Monitor Board View */
-          <div className="p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 space-y-3 text-xs">
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div className="p-3 rounded-lg bg-slate-900/80 border border-slate-700/60">
-                <div className="text-slate-400 text-[11px]">调用量总趋势</div>
-                <div className="text-lg font-bold text-cyan-300 font-mono mt-1">2,841,200 次</div>
-                <div className="text-[10px] text-emerald-400 mt-0.5">平稳运行中 (峰值 480 QPS)</div>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-900/80 border border-slate-700/60">
-                <div className="text-slate-400 text-[11px]">告警触发与响应</div>
-                <div className="text-lg font-bold text-amber-300 font-mono mt-1">4 起告警</div>
-                <div className="text-[10px] text-slate-400 mt-0.5">平均响应定位耗时 &lt; 2分钟</div>
-              </div>
-              <div className="p-3 rounded-lg bg-slate-900/80 border border-slate-700/60">
-                <div className="text-slate-400 text-[11px]">服务告警量 Top 5 快速定位</div>
-                <div className="text-[11px] text-slate-300 mt-1 font-mono">
-                  1. 医保明细接口 (超时预警) <br />
-                  2. 交通违章查询接口 (频次波动)
-                </div>
-              </div>
-            </div>
-            <div className="p-2 rounded bg-blue-950/40 border border-blue-800/40 text-[11px] text-blue-200">
-              解决服务运行状况缺乏全局视图、异常发现滞后问题，为数据服务稳定运行提供全面监控保障。
-            </div>
+
+          <div className="mt-3 p-2 rounded-lg bg-cyan-950/40 border border-cyan-800/40 flex items-center justify-between text-[11px] text-cyan-200">
+            <span>解决运行状态不透明、故障排查滞后等传统难题，构筑高可用公共数据要素服务防线</span>
+            <span className="text-cyan-400 font-semibold shrink-0 ml-2">主动韧性保障</span>
           </div>
-        )}
+        </div>
       </div>
 
-      {/* Summary Footer */}
-      <div className="p-2.5 rounded-lg bg-slate-800/60 border border-slate-700 text-xs text-slate-300 flex items-center justify-between">
-        <span className="text-blue-300 font-medium">从看数据到理解数据：</span>
-        <span className="text-slate-300">
-          “问题驱动 → 智能解析 → 结论输出 → 报告生成” —— 让运营数据直接转化为领导决策依据。
+      {/* Slide Footer */}
+      <div className="shrink-0 relative z-10 p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/70 flex items-center justify-between text-xs text-slate-300">
+        <div className="flex items-center gap-2">
+          <FileSpreadsheet className="w-4 h-4 text-cyan-400 shrink-0" />
+          <span className="text-slate-300">
+            双轮驱动：以全景运营看板指导业务治理优化，以实时监控保障技术高可用，辅以 AI 智能问数实现数据资产洞察闭环。
+          </span>
+        </div>
+        <span className="px-2.5 py-0.5 rounded bg-blue-600/30 border border-blue-400/30 text-cyan-300 font-semibold text-xs whitespace-nowrap ml-4">
+          运营监控一体化
         </span>
-        <span className="text-cyan-400 text-xs font-semibold">智能解读 · 辅助决策</span>
       </div>
     </div>
   );

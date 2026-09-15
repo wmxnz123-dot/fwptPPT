@@ -149,7 +149,7 @@ export const ArchitectureSlide: React.FC<{ slide: SlideData }> = ({ slide }) => 
               {
                 title: "服务管理",
                 items: ['服务开发', '服务审核', '服务配置', '服务测试'],
-                aiTag: "AI服务审核/智能配置"
+                aiTag: "AI服务审核/配置/测试"
               },
               {
                 title: "供需对接",
@@ -171,7 +171,7 @@ export const ArchitectureSlide: React.FC<{ slide: SlideData }> = ({ slide }) => 
                     <div
                       key={i}
                       className={`py-0.5 rounded border ${
-                        highlightAi && (item.includes('编制') || item.includes('审核') || item.includes('配置'))
+                        highlightAi && (item.includes('编制') || item.includes('审核') || item.includes('配置') || item.includes('测试'))
                           ? 'bg-blue-900/40 border-cyan-500/30 text-cyan-100 font-medium'
                           : 'bg-slate-800/40 border-slate-700/60 text-slate-400'
                       }`}
