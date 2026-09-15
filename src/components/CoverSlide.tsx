@@ -37,12 +37,15 @@ export const CoverSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
         </h1>
 
         <p className="text-base sm:text-xl md:text-2xl text-blue-100/90 font-medium leading-relaxed max-w-3xl">
-          AI赋能数据服务全流程：让数据
-          <span className="text-cyan-300 font-bold mx-1">更易找</span>、
-          <span className="text-cyan-300 font-bold mx-1">更易编</span>、
-          <span className="text-cyan-300 font-bold mx-1">更易审</span>、
-          <span className="text-cyan-300 font-bold mx-1">更易用</span>、
-          <span className="text-cyan-300 font-bold mx-1">更易管</span>
+          <span>AI赋能数据服务全流程：</span>
+          <span className="whitespace-nowrap inline-block">
+            让数据
+            <span className="text-cyan-300 font-bold mx-1">更易找</span>、
+            <span className="text-cyan-300 font-bold mx-1">更易编</span>、
+            <span className="text-cyan-300 font-bold mx-1">更易审</span>、
+            <span className="text-cyan-300 font-bold mx-1">更易用</span>、
+            <span className="text-cyan-300 font-bold mx-1">更易管</span>
+          </span>
         </p>
 
         <div className="h-0.5 w-32 bg-gradient-to-r from-cyan-400 to-transparent my-4" />
@@ -57,9 +60,9 @@ export const CoverSlide: React.FC<{ slide: SlideData }> = ({ slide }) => {
         {[
           { label: "更易找", desc: "智能问答助手 / 对话直达", icon: Sparkles },
           { label: "更易编", desc: "两步编制 / 字段智能填充", icon: Database },
-          { label: "更易审", desc: "6大指标质检 / 人机协同", icon: ShieldCheck },
-          { label: "更易用", desc: "参数智能填充 / 连通测试", icon: Layers },
-          { label: "更易管", desc: "多维下钻 / 智能解读分析", icon: CheckCircle2 }
+          { label: "更易审", desc: "多项指标质检 / 人机协同", icon: ShieldCheck },
+          { label: "更易用", desc: "参数智能填充 / 规范交付", icon: Layers },
+          { label: "更易管", desc: "智能统计问数 / 智能报告生成", icon: CheckCircle2 }
         ].map((item, idx) => (
           <div key={idx} className="p-3 rounded-lg bg-blue-900/40 border border-blue-400/20 backdrop-blur-sm hover:border-blue-400/40 transition-colors">
             <div className="flex items-center gap-2 text-cyan-300 font-semibold text-sm mb-1">
